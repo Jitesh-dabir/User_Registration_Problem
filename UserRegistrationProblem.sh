@@ -64,7 +64,7 @@ function validPasswordRule1(){
 
 #FUNCTION CALL TO CHECK PASSWORD HAVE ATLEAST ONE CAPITAL LATTER
 function validPasswordRule2(){
-   local pattern="[a-zA-Z0-9]{8,}?[A-Z]"
+   local pattern="([A-Z])([a-z0-9]*)$"
    read -p "Enter password:" password
    if [[ $password =~ $pattern ]]
    then
@@ -80,3 +80,4 @@ validEmail
 validMobile
 validPasswordRule1
 validPasswordRule2
+
