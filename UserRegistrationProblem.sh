@@ -25,6 +25,7 @@ function lastName(){
 		echo "Invalid"
 	fi 
 }
+
 #FUNCTION TO VALID EMAIL ADDRESS
 function validEmail(){
 	local pattern="^[a-z]+[0-9]*+@[a-z]+.[a-z]{0,4}?[a-z]{0,4}.[a-z]{1,4}$"
@@ -36,6 +37,7 @@ function validEmail(){
 		echo "Invalid"
 	fi
 }
+
 #FUNCTION TO VALID PRE-DEFINED MOBILE FORMAT
 function validMobile(){
 	local pattern="^[0-9]{2}[ ][0-9]{10}"
@@ -47,7 +49,9 @@ function validMobile(){
 		echo "Invalid"
 	fi
 }
-function validPassword(){
+
+#PASSWORD HAVE MINIMUM 8 CHARACTER
+function validPasswordRule1(){
 	local pattern="^[a-zA-Z0-9]{8,}"
 	read -p "Enter password:" password
 	if [[ $password =~ $pattern ]]
@@ -58,8 +62,21 @@ function validPassword(){
 	fi
 }
 
+#FUNCTION CALL TO CHECK PASSWORD HAVE ATLEAST ONE CAPITAL LATTER
+function validPasswordRule2(){
+   local pattern="[a-zA-Z0-9]{8,}?[A-Z]"
+   read -p "Enter password:" password
+   if [[ $password =~ $pattern ]]
+   then
+      echo "Valid"
+   else
+      echo "Invalid"
+   fi
+}
+
 firstName
 lastName
 validEmail
 validMobile
-validPassword
+validPasswordRule1
+validPasswordRule2
