@@ -47,8 +47,19 @@ function validMobile(){
 		echo "Invalid"
 	fi
 }
+function validPassword(){
+	local pattern="^[a-zA-Z0-9]{8,}"
+	read -p "Enter password:" password
+	if [[ $password =~ $pattern ]]
+	then
+		echo "Valid"
+	else
+		echo "Invalid"
+	fi
 
+}
 firstName
 lastName
 validEmail
 validMobile
+validPassword
