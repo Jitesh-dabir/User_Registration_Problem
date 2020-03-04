@@ -2,7 +2,7 @@
 
 echo ".......................................Welcome to User Registration Problem........................................"
 
-#FUNCTION TO VALID FIRST NAME(FIRST LETTER CAPITAL AND MIN 3 CHARACTER)
+#FUNCTION TO VALID FIRST NAME
 function firstName(){
 	local pattern="^[A-Z]{1}[a-z]{2,}$"
 	read -p "Enter first name:" name
@@ -14,9 +14,9 @@ function firstName(){
 	fi 
 }
 
-#FUNCTION TO VALID FIRST NAME AND LAST NAME(FIRST LETTER CAPITAL AND MIN 3 CHARACTER)
+#FUNCTION TO VALID FIRST NAME AND LAST NAME
 function lastName(){
-	local pattern="^[A-Z]{1}[a-z]{2,}( )[A-Z]{1}[a-z]{2,}$"
+	local pattern="^[A-Z]{1}[a-z]{2,}[ ][A-Z]{1}[a-z]{2,}$"
 	read -p "Enter first name and last name:" name
 	if [[ $name =~ $pattern ]]
 	then
@@ -36,6 +36,19 @@ function validEmail(){
 		echo "Invalid"
 	fi
 }
+#FUNCTION TO VALID PRE-DEFINED MOBILE FORMAT
+function validMobile(){
+	local pattern="^[0-9]{2}[ ][0-9]{10}"
+	read -p "Enter mobile number:" mobileNumber
+	if [[ $mobileNumber =~ $pattern ]]
+	then
+		echo "Valid"
+	else
+		echo "Invalid"
+	fi
+}
+
 firstName
 lastName
 validEmail
+validMobile
