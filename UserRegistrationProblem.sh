@@ -56,8 +56,8 @@ function validPassword(){
 	else
 		echo "Invalid"
 	fi
-
 }
+
 firstName
 lastName
 validEmail
