@@ -28,7 +28,7 @@ function lastName(){
 
 #FUNCTION TO VALID EMAIL ADDRESS
 function validEmail(){
-	local pattern="^[a-z]+[0-9]*+@[a-z]+.[a-z]{0,4}?[a-z]{0,4}.[a-z]{1,4}$"
+	local pattern="^[a-z]+[0-9]*+@[a-z]+.[a-z]{0,4}?[a-z]{0,4}.[a-z]{2,4}$"
 	read -p "Enter email address:" email
 	if [[ $email =~ $pattern ]]
 	then
@@ -74,9 +74,23 @@ function validPasswordRule2(){
    fi
 }
 
+
+#FUNCTION CALL TO CHECK PASSWORD HAVE ATLEAST ONE NUMBER
+function validPasswordRule3(){
+	local pattern="^([A-Za-z0-9]*[0-9]+[A-Za-z0-9]*[A-Z])|([A-Za-z0-9]*[A-Z]+[A-Za-z0-9]*[0-9])$"
+	read -p "Enter password:" password
+	if [[ $password =~ $pattern ]]
+	then
+		echo "Valid"
+	else
+		echo "Invalid"
+	fi
+}
+
 firstName
 lastName
 validEmail
 validMobile
 validPasswordRule1
 validPasswordRule2
+validPasswordRule3
